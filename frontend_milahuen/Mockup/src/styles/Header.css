@@ -1,0 +1,47 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #f8f8f8;
+}
+
+.header__socials a {
+  margin-right: 10px;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.header__logo-image {
+  height: 100px;
+  width: auto; 
+}
+
+
+.header__actions {
+  display: flex;
+  align-items: center;
+}
+
+.header__actions button {
+  background: none;
+  border: none;
+  margin-left: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.header__login-button {
+  margin-left: 15px;
+  padding: 5px 10px;
+  background-color: #ffa500;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.header__login-button:hover {
+  background-color: #e59400;
+}
