@@ -1,0 +1,74 @@
+create table users (
+  id bigint primary key generated always as identity,
+  email text not null unique,
+  password text not null,
+  role text check (role in ('customer', 'admin')) not null,
+  address text
+);
+
+create table products (
+  id bigint primary key generated always as identity,
+  name text not null,
+  description text,
+  price numeric(10, 2) not null,
+  stock int not null
+);
+
+create table carts (
+  id bigint primary key generated always as identity,
+  user_id bigint not null references users (id)
+);
+
+create table cart_items (
+  id bigint primary key generated always as identity,
+  cart_id bigint not null references carts (id),
+  product_id bigint not null references products (id),
+  quantity int not null check (quantity > 0)
+);
+
+create table orders (
+  id bigint primary key generated always as identity,
+  user_id bigint not null references users (id),
+  order_date timestamp with time zone default now(),
+  total numeric(10, 2) not null
+);
+
+create table order_items (
+  id bigint primary key generated always as identity,
+  order_id bigint not null references orders (id),
+  product_id bigint not null references products (id),
+  quantity int not null check (quantity > 0),
+  price_at_purchase numeric(10, 2) not null
+);
+
+alter table products
+alter column price type int using price::int;
+
+alter table orders
+alter column total type int using total::int;
+
+alter table order_items
+alter column price_at_purchase type int using price_at_purchase::int;
+
+create table if not exists tags (
+  id bigint primary key generated always as identity,
+  name text not null unique
+);
+
+create table if not exists product_tags (
+  product_id bigint not null references products (id),
+  tag_id bigint not null references tags (id),
+  primary key (product_id, tag_id)
+);
+
+alter table products
+alter column price type int using price::int;
+
+alter table orders
+alter column total type int using total::int;
+
+alter table order_items
+alter column price_at_purchase type int using price_at_purchase::int;
+
+alter table products
+add column if not exists is_active boolean default true;
