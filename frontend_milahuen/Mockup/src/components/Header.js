@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../styles/Header.css';
 import { FaFacebook, FaInstagram, FaTiktok, FaShoppingCart, FaSearch } from 'react-icons/fa';
+import { CartContext } from '../context/CartContext';
 
-function Header() {
+function Header({ onCartClick }) {
+  const { cartItems } = useContext(CartContext);
+
+  const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
+
   return (
     <header className="header">
       <div className="header__socials">
         <a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
           <FaFacebook />
         </a>
-        <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.instagram.com/emporiomilahuen/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
           <FaInstagram />
         </a>
         <a href="https://tiktok.com" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
@@ -23,8 +28,9 @@ function Header() {
         <button aria-label="Buscar">
           <FaSearch />
         </button>
-        <button aria-label="Carrito">
+        <button aria-label="Carrito" className="header__cart-button" onClick={onCartClick}>
           <FaShoppingCart />
+          {totalItems > 0 && <span className="header__cart-count">{totalItems}</span>}
         </button>
         <button className="header__login-button">Iniciar Sesión</button>
       </div>

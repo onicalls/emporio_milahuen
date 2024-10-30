@@ -1,34 +1,27 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import BenefitCard from './BenefitCard';
+import { ReuseContext } from '../context/ReuseContext';
 import '../styles/BenefitsSection.css';
 
 function BenefitsSection() {
-  const [jarsReused, setJarsReused] = useState(100); // Cantidad de frascos reutilizados
+  const { reuseCount } = useContext(ReuseContext);
 
-  // Cálculos de ahorro de recursos
-  const treesSaved = Math.round(jarsReused * 0.1); // 0.1 árboles por frasco
-  const waterSaved = Math.round(jarsReused * 0.9); // 0.9 litros de agua por frasco
+  // Cálculo aproximado de los beneficios, en vdd desconozco la conversión xD
+  const treesSaved = (reuseCount * 0.1).toFixed(0);
+  const waterSaved = (reuseCount * 0.9).toFixed(0);
 
   const benefits = [
     {
       id: 1,
       image: '/images/tree.jpg',
       title: 'Tala de árboles evitada',
-      description: (
-        <>
-          Al reutilizar frascos, reducimos la necesidad de tala de árboles. Aproximadamente, se evitaron <strong>{treesSaved}</strong> árboles.
-        </>
-      ),
+      description: `Al reutilizar frascos, aproximadamente se evitaron ${treesSaved} árboles.`,
     },
     {
       id: 2,
       image: '/images/water.png',
       title: 'Ahorro de agua',
-      description: (
-        <>
-          La economía circular permite conservar miles de litros de agua. Aproximadamente, se ahorraron <strong>{waterSaved}</strong> litros de agua.
-        </>
-      ),
+      description: `Gracias a la economía circular, se ahorraron aproximadamente ${waterSaved} litros de agua.`,
     },
   ];
 
@@ -52,6 +45,7 @@ function BenefitsSection() {
           <br /><br />
           Reutiliza tus frascos y Milahuén te premia con descuentos especiales.
         </p>
+        <img src="/images/reward.png" alt="Premios por reutilización" className="benefits-section__reward-image" />
       </div>
     </div>
   );
