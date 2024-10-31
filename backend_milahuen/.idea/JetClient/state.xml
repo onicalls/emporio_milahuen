@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JetClientState">
+    <option name="draftsState">
+      <draftsState>
+        <option name="requests">
+          <list>
+            <requestState>
+              <option name="body">
+                <bodyState>
+                  <option name="raw" value="{&#10;    &quot;nombre&quot;: &quot;Maní Confitado&quot;,&#10;    &quot;descripcion&quot;: &quot;Rico maní yoooo&quot;,&#10;    &quot;precio&quot;: 1000,&#10;    &quot;stock&quot;: 10&#10;}" />
+                  <option name="type" value="JSON" />
+                </bodyState>
+              </option>
+              <option name="headers">
+                <list>
+                  <headerState>
+                    <option name="key" value="Authorization" />
+                    <option name="value" value="Token 54878f5c88bab9907e046d63e27a3db5af48f411" />
+                  </headerState>
+                </list>
+              </option>
+              <option name="id" value="636c2e92-7ded-4cd3-a252-0dc6cd70a0a1" />
+              <option name="method" value="GET" />
+              <option name="name" value="Draft" />
+              <option name="url" value="http://localhost:8000/api/productos/" />
+            </requestState>
+            <requestState>
+              <option name="body">
+                <bodyState>
+                  <option name="raw" value="{&#10;  'username': 'pingeso',&#10;  'password': 'hola123'&#10;}" />
+                  <option name="type" value="JSON" />
+                </bodyState>
+              </option>
+              <option name="id" value="870ef144-18eb-4ebf-b5cc-0221699b460f" />
+              <option name="method" value="POST" />
+              <option name="name" value="Draft (1)" />
+              <option name="url" value="http://localhost:8000/login/" />
+            </requestState>
+          </list>
+        </option>
+      </draftsState>
+    </option>
+    <option name="id" value="fd5d84f9-4373-4cc5-bf25-9810b056d679" />
+    <option name="version" value="4" />
+  </component>
+</project>

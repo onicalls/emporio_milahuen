@@ -18,7 +18,7 @@ python manage.py runserver
 Para crear una aplicación, ejecuta el siguiente comando:
 
 ```bash
-python manage.py startapp emporio_milahuen
+python manage.py startapp api
 ```
 
 Esto genera una carpeta con el nombre de la aplicación, en este caso `emporio_milahuen`.
@@ -28,7 +28,7 @@ A continuación, debes agregar la aplicación al archivo `settings.py` en la lis
 ```python
 INSTALLED_APPS = [
     "...",
-    'emporio_milahuen',
+    'api',
 ]
 ```
 
